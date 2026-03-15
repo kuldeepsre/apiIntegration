@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quoteapi/firebase_options.dart';
 import 'package:quoteapi/provider/QutesProvider.dart';
+import 'package:quoteapi/provider/dashboard_provider.dart';
 import 'package:quoteapi/provider/sockrtprovider.dart';
+import 'package:quoteapi/screens/dashboard_screen.dart';
 import 'package:quoteapi/screens/sockrt_screen.dart';
 
 Future<void> main() async {
@@ -14,7 +16,8 @@ Future<void> main() async {
    );
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_)=>QutesProvider()),
-    ChangeNotifierProvider(create: (_)=>SocketProvider())
+    ChangeNotifierProvider(create: (_)=>SocketProvider()),
+    ChangeNotifierProvider(create: (_) => DashboardProvider()),
   ]
   ,
     child: const MyApp(),
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SocketScreen(),
+      home: DashboardScreen(),
      // home: QuotesScreen(),
     );
   }

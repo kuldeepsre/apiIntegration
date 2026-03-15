@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/dashboard_provider.dart';
+
+class HomeScreen extends StatefulWidget {
+   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text("home",style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),);
+  }
+}
