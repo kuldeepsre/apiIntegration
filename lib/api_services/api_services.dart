@@ -32,7 +32,7 @@ class ApiServices {
   }
   Future<UserResponse> fetchUsers() async {
     final response =
-    await http.get(Uri.parse("https://randomuser.me/api/?results=10"));
+    await http.get(Uri.parse("https://randomuser.me/api/?results=10"),);
 
     if (response.statusCode == 200) {
       return UserResponse.fromJson(jsonDecode(response.body));
@@ -42,11 +42,12 @@ class ApiServices {
   }
   Future<List<AlbumResponse>> fetchAlbum() async{
 
-    final response=await http.get(Uri.parse("https://jsonplaceholder.typicode.com/albums"));
+    final response=await http.get(Uri.parse("https://jsonplaceholder.typicode.com/albums"), headers: {
+      'Accept' : 'application/json'
+    });
     if(response.statusCode==200){
       List data=jsonDecode(response.body);
-      print(data);
-      return data.map((e)=>AlbumResponse.fromJson(e)).toList();
+          return data.map((e)=>AlbumResponse.fromJson(e)).toList();
 
     }
     else{
