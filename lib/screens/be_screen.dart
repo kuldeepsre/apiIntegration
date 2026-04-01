@@ -23,7 +23,7 @@ class _BeResponseState extends State<BeScreen> {
         body: Builder(
           builder: (context) {
             return ListView.builder(
-              itemCount: provider.beList.length,
+                itemCount: provider.beList.length,
                 itemBuilder: (context,index)
             {
        final data=provider.beList[index];
