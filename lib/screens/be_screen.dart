@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quoteapi/provider/be_provider.dart';
@@ -21,13 +20,11 @@ class _BeResponseState extends State<BeScreen> {
   Widget build(BuildContext context) {
     final provider=Provider.of<BeProvider>(context);
     return Scaffold(
-
         body: Builder(
           builder: (context) {
             return ListView.builder(
               itemCount: provider.beList.length,
                 itemBuilder: (context,index)
-
             {
        final data=provider.beList[index];
           return Padding(
@@ -48,8 +45,6 @@ class _BeResponseState extends State<BeScreen> {
               ),
             ),
           );
-
-
             }
             );
           }
