@@ -11,8 +11,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Center(child: Text("home",style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),);

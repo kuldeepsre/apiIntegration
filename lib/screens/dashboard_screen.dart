@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quoteapi/screens/photoscreen.dart';
+import 'package:quoteapi/screens/quotes_screen.dart';
 import '../provider/dashboard_provider.dart';
 import 'Profile.dart';
 import 'SettingsScreen.dart';
-import 'home_screen.dart';
+
 
 
 class DashboardScreen extends StatelessWidget {
 
   final List<Widget> pages = [
-    HomeScreen(),
-    ProfileScreen(),
+    PhotoScreen(),
+    QuotesScreen(),
     SettingsScreen(),
   ];
 

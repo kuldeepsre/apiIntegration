@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quoteapi/firebase_options.dart';
 import 'package:quoteapi/provider/QutesProvider.dart';
+import 'package:quoteapi/provider/albumprovider.dart';
 import 'package:quoteapi/provider/dashboard_provider.dart';
+import 'package:quoteapi/provider/photo_provider.dart';
 import 'package:quoteapi/provider/sockrtprovider.dart';
-import 'package:quoteapi/screens/dashboard_screen.dart';
-import 'package:quoteapi/screens/sockrt_screen.dart';
+import 'package:quoteapi/provider/user_provider.dart';
+import 'package:quoteapi/screens/album_screen.dart';
+
+import 'package:quoteapi/screens/user_list.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +22,9 @@ Future<void> main() async {
     ChangeNotifierProvider(create: (_)=>QutesProvider()),
     ChangeNotifierProvider(create: (_)=>SocketProvider()),
     ChangeNotifierProvider(create: (_) => DashboardProvider()),
+    ChangeNotifierProvider(create: (_)=>PhotoProvider()),
+    ChangeNotifierProvider(create: (_)=>UserProvider()),
+    ChangeNotifierProvider(create: (_)=>AlbumProvider())
   ]
   ,
     child: const MyApp(),
@@ -35,7 +42,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: DashboardScreen(),
+      home: AlbumScreeen(),
+    //  home: UserListScreen(),
+     // home: DashboardScreen(),
      // home: QuotesScreen(),
     );
   }

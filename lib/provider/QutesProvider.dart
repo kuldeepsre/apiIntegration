@@ -3,7 +3,7 @@ import 'package:quoteapi/api_services/api_services.dart';
 import 'package:quoteapi/model/quotes_response.dart';
 
 class QutesProvider extends ChangeNotifier{
-  final ApioServices _apioServices=ApioServices();
+  final ApiServices _apioServices=ApiServices();
   String ? _error;
   bool _isLoading=false;
   List<QuotesResponse> _quotesList=[];
