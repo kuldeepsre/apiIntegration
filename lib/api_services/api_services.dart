@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:quoteapi/model/BeRespnse.dart';
 import 'package:quoteapi/model/albuum_response.dart';
 import 'package:quoteapi/model/photos.dart';
 import 'package:quoteapi/model/quotes_response.dart';
@@ -17,7 +18,6 @@ class ApiServices {
     }
     throw Exception("failed");
   }
-
   Future<List<PhotoResponse>> fechPhoto() async {
     final respose = await http.get(
         Uri.parse('https://jsonplaceholder.typicode.com/photos'));
@@ -55,4 +55,17 @@ class ApiServices {
     }
 
   }
+  Future<List<BeRespnse>> fectchBeData ()async{
+    final Response=await http.get(Uri.parse("https://dummy-json.mock.beeceptor.com/continents"));
+    if(Response.statusCode==200){
+      List Data=jsonDecode(Response.body);
+
+      return Data.map((e)=>BeRespnse.fromJson(e)).toList();
+    }
+    else{
+      throw Exception("Faild to response");
+
+    }
+  }
+
 }
