@@ -1,10 +1,12 @@
 import 'package:http/http.dart' as http;
 import 'package:quoteapi/model/BeRespnse.dart';
 import 'package:quoteapi/model/albuum_response.dart';
+import 'package:quoteapi/model/commnet_%20response.dart';
 import 'package:quoteapi/model/photos.dart';
 import 'package:quoteapi/model/quotes_response.dart';
 import 'dart:convert';
 
+import '../model/ReceiptResponse.dart';
 import '../model/user_response.dart';
 class ApiServices {
 
@@ -67,5 +69,24 @@ class ApiServices {
 
     }
   }
+  Future<List<CommentResponse>>  fetchComments()  async{
+    final response=await http.get(Uri.parse("https://dummyjson.com/comments"));
+    if(response.statusCode==200){
+      final data=jsonDecode(response.body);
+      return  (data['comments'] as List).map((e)=>CommentResponse.fromJson(e)).toList();
+    }
+    else{
+      throw Exception("failded");
+    }
+  }
+  Future<ReceiptResponse> fetchReciept() async {
+    final response =
+    await http.get(Uri.parse("https://dummyjson.com/recipes"),);
 
+    if (response.statusCode == 200) {
+      return ReceiptResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception("Failed to load users");
+    }
+  }
 }

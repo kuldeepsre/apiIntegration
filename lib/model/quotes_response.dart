@@ -2,7 +2,6 @@ class QuotesResponse{
   int ? id;
   String ? quote;
   String ? author;
-
   QuotesResponse(this.id, this.quote, this.author);
   QuotesResponse.fromJson(Map<String,dynamic> json){
     id=json['id'];
