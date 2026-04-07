@@ -9,11 +9,13 @@ import 'package:quoteapi/provider/be_provider.dart';
 import 'package:quoteapi/provider/comment_provider.dart';
 import 'package:quoteapi/provider/dashboard_provider.dart';
 import 'package:quoteapi/provider/photo_provider.dart';
+import 'package:quoteapi/provider/post_provider.dart';
 import 'package:quoteapi/provider/reciept_provider.dart';
 import 'package:quoteapi/provider/sockrtprovider.dart';
 import 'package:quoteapi/provider/user_provider.dart';
 import 'package:quoteapi/screens/be_screen.dart';
 import 'package:quoteapi/screens/comment_screen.dart';
+import 'package:quoteapi/screens/post_screen.dart';
 import 'package:quoteapi/screens/reciept_screen.dart';
 
 
@@ -31,7 +33,8 @@ Future<void> main() async {
     ChangeNotifierProvider(create: (_)=>AlbumProvider()),
     ChangeNotifierProvider(create: (_)=>BeProvider()),
     ChangeNotifierProvider(create: (_)=>CommentProvider()),
-    ChangeNotifierProvider(create: (_)=>RecipeProvider())
+    ChangeNotifierProvider(create: (_)=>RecipeProvider()),
+    ChangeNotifierProvider(create: (_)=>PostProvider()),
   ]
   ,
     child: const MyApp(),
@@ -51,7 +54,8 @@ class MyApp extends StatelessWidget {
       ),
 
 
-         home: RecipeScreen(),
+         home: PostScreen(),
+        // home: RecipeScreen(),
       //   home: CommentScreen(),
       //   home: BeScreen(),
      // home: AlbumScreeen(),

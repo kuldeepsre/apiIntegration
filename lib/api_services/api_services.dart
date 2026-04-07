@@ -3,6 +3,7 @@ import 'package:quoteapi/model/BeRespnse.dart';
 import 'package:quoteapi/model/albuum_response.dart';
 import 'package:quoteapi/model/commnet_%20response.dart';
 import 'package:quoteapi/model/photos.dart';
+import 'package:quoteapi/model/postResponse.dart';
 import 'package:quoteapi/model/quotes_response.dart';
 import 'dart:convert';
 
@@ -89,4 +90,19 @@ class ApiServices {
       throw Exception("Failed to load users");
     }
   }
-}
+  Future<PostResponse>    fetchPost() async{
+    
+    final response =await http.get(Uri.parse("https://dummyjson.com/posts"));
+      if(response.statusCode==200){
+
+        return PostResponse.fromJson(jsonDecode(response.body));
+      }
+
+      else{
+
+        throw Exception("tesdsrer");
+      }
+    }
+
+
+  }

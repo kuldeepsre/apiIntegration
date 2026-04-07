@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:quoteapi/api_services/api_services.dart';
 import 'package:quoteapi/model/photos.dart';
 class PhotoProvider extends ChangeNotifier{
- final ApiServices _apioServices=ApiServices();
+  final ApiServices _apioServices=ApiServices();
   List<PhotoResponse>  _photoList=[];
   bool _isLoading=false;
   String ? _error;
